@@ -1,0 +1,61 @@
+name: rateables
+services:
+  db:
+    container_name: rateables-db
+    image: mariadb:10.11.7-jammy
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MARIADB_DATABASE: rateables
+      MARIADB_USER: ${DB_USERNAME}
+      MARIADB_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - 3306:3306
+    volumes:
+      - db:/var/lib/mysql
+      - /etc/localtime:/etc/localtime:ro
+      - ./db/init/:/docker-entrypoint-initdb.d
+    # networks:
+    #   - rateables-net
+
+  backend:
+    container_name: rateables-backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+      - 9229:9229
+    volumes:
+      - ./backend:/app
+      - rateables-backend-node-modules:/app/node_modules
+    restart: always
+    # depends_on:
+    #   - db
+    # networks:
+    #   - rateables-net
+
+  # web:
+  #   container_name: rateables-web
+  #   build:
+  #     context: ./web
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - 4200:4200
+  #   volumes:
+  #     - ./web:/app
+  #     - rateables-web-node-modules:/app/node_modules
+  #   restart: always
+  # depends_on:
+  #   - backend
+  # networks:
+  #   - rateables-net
+
+volumes:
+  db:
+  rateables-backend-node-modules:
+  rateables-web-node-modules:
+
+networks:
+  rateables-net:
+    name: rateables-net

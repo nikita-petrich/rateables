@@ -1,0 +1,53 @@
+# Node modules & dependencies
+node_modules
+bower_components
+
+# Angular build output (ignored during build, copied after build)
+dist
+tmp
+temp
+
+# Environment files (if they contain secrets)
+src/environments/*.ts
+!.src/environments/environment.prod.ts
+
+# Logs & debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDEs / Editors
+.vscode
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Git / Version control
+.git
+.gitignore
+.gitattributes
+
+# Docker / CI artifacts
+Dockerfile*
+.dockerignore
+docker-compose*
+
+# Tests / Coverage
+coverage
+karma.conf.js
+test.ts
+jest.config.js
+*.spec.ts
+
+# Misc build caches
+.cache
+.angular
+.eslintcache

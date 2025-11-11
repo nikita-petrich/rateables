@@ -25,8 +25,7 @@ export class App implements OnInit {
       const post = current[idx];
       const isLiked = !post.isLiked;
       const likes = Math.max(0, post.likes + (isLiked ? 1 : -1));
-      const likedBy = isLiked ? [...post.likedBy, 'you'] : post.likedBy.filter((u) => u !== 'you');
-      const updated = { ...post, isLiked, likes, likedBy };
+      const updated = { ...post, isLiked, likes };
       this.posts.set([...current.slice(0, idx), updated, ...current.slice(idx + 1)]);
     }
     this.postService.likePost(id, 'you').subscribe();

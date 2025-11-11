@@ -4,7 +4,7 @@
         @for (p of posts(); track p.id) {
         <div style="margin-bottom: 24px;">
             <app-post [id]="p.id" [username]="p.username" [avatarUrl]="p.avatarUrl" [imageUrl]="p.imageUrl"
-                [likedBy]="p.likedBy" [likes]="p.likes" [caption]="p.caption" [timeAgo]="p.timeAgo"
+                 [likes]="p.likes" 
                 [isLiked]="p.isLiked" (like)="onLike(p.id)" (hide)="onHide(p.id)">
             </app-post>
         </div>

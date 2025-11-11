@@ -24,10 +24,7 @@ export class Post {
   @Input() username: string = '';
   @Input() avatarUrl: string = '';
   @Input() imageUrl: string = '';
-  @Input() likedBy: string[] = [];
   @Input() likes: number = 0;
-  @Input() caption: string = '';
-  @Input() timeAgo: string = '';
   @Input() isLiked: boolean = false;
   @Output() like = new EventEmitter<void>();
   @Output() hide = new EventEmitter<void>();

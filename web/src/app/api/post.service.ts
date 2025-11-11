@@ -7,10 +7,7 @@ export type PostItem = {
   username: string;
   avatarUrl: string;
   imageUrl: string;
-  likedBy: string[];
   likes: number;
-  caption: string;
-  timeAgo: string;
   isLiked: boolean;
 };
 

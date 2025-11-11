@@ -11,6 +11,8 @@ export type PostItem = {
   isLiked: boolean;
 };
 
+export type LikeType = 'like' | 'unlike';
+
 @Injectable({ providedIn: 'root' })
 export class PostService {
   // For local dev; consider moving to environment config later
@@ -21,7 +23,7 @@ export class PostService {
     return this.http.get<PostItem[]>(`${this.baseUrl}/posts`);
   };
 
-  public readonly likePost = (id: number, user: string = 'you'): Observable<PostItem> => {
-    return this.http.post<PostItem>(`${this.baseUrl}/posts/${id}/like`, { user });
+  public readonly likePost = (id: number, action: LikeType): Observable<PostItem> => {
+    return this.http.post<PostItem>(`${this.baseUrl}/posts/${id}/like`, { action });
   };
 }

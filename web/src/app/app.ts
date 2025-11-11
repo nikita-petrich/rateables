@@ -1,7 +1,7 @@
 import { Component, OnInit, inject, signal } from '@angular/core';
 import { Header } from './header/header';
 import { Post } from './post/post';
-import { PostService, PostItem } from './api/post.service';
+import { PostService, PostItem, LikeType } from './api/post.service';
 
 @Component({
   selector: 'app-root',
@@ -21,14 +21,17 @@ export class App implements OnInit {
   protected readonly onLike = (id: number): void => {
     const current = this.posts();
     const idx = current.findIndex((p) => p.id === id);
+    const post = current[idx];
+    const newIsLikedValue = !post.isLiked;
+
     if (idx >= 0) {
-      const post = current[idx];
-      const isLiked = !post.isLiked;
-      const likes = Math.max(0, post.likes + (isLiked ? 1 : -1));
-      const updated = { ...post, isLiked, likes };
+      const likes = newIsLikedValue ? post.likes + 1 : post.likes - 1;
+      const updated = { ...post, isLiked: newIsLikedValue, likes };
       this.posts.set([...current.slice(0, idx), updated, ...current.slice(idx + 1)]);
     }
-    this.postService.likePost(id, 'you').subscribe();
+
+    const action: LikeType = newIsLikedValue ? 'like' : 'unlike';
+    this.postService.likePost(id, action).subscribe();
   };
 
   protected readonly onHide = (id: number): void => {

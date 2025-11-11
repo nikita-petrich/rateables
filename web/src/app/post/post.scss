@@ -35,11 +35,38 @@
 .ig-actions {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 8px;
   padding-top: 8px;
 }
 .ig-actions .spacer {
   flex: 1;
+}
+
+.ig-actions button[mat-icon-button] {
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  transition: background-color 150ms ease, transform 100ms ease, color 150ms ease;
+}
+.ig-actions button[mat-icon-button]:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+.ig-actions button[mat-icon-button]:active {
+  transform: scale(0.96);
+}
+.ig-actions button[mat-icon-button].is-liked mat-icon {
+  color: #e91e63;
+}
+
+.likes-badge {
+  display: inline-flex;
+  align-items: center;
+  height: 26px;
+  padding: 0 10px;
+  border-radius: 9999px;
+  background: rgba(0, 0, 0, 0.06);
+  font-weight: 600;
+  font-size: 12px;
 }
 
 .ig-likes {

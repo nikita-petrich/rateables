@@ -20,7 +20,7 @@ import { MatMenuModule } from '@angular/material/menu';
   styleUrl: './post.scss',
 })
 export class Post {
-  @Input() id: string = '';
+  @Input() id: number = 0;
   @Input() username: string = '';
   @Input() avatarUrl: string = '';
   @Input() imageUrl: string = '';

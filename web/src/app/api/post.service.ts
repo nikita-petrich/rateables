@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export type PostItem = {
-  id: string;
+  id: number;
   username: string;
   avatarUrl: string;
   imageUrl: string;
@@ -21,7 +21,7 @@ export class PostService {
     return this.http.get<PostItem[]>(`${this.baseUrl}/posts`);
   };
 
-  public readonly likePost = (id: string, user: string = 'you'): Observable<PostItem> => {
+  public readonly likePost = (id: number, user: string = 'you'): Observable<PostItem> => {
     return this.http.post<PostItem>(`${this.baseUrl}/posts/${id}/like`, { user });
   };
 }

@@ -1,0 +1,44 @@
+-- Insert mock food‐related posts into 'posts' table with verified Unsplash URLs
+INSERT INTO posts (username, avatar_url, image_url, likes, is_liked) VALUES
+('foodie_jane',
+ 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=200&auto=format&fit=crop',
+ 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1600&auto=format&fit=crop',
+ 1289,
+ 0
+),
+('baking_queen',
+ 'https://images.unsplash.com/photo-1519677100203-a0e668c92439?q=80&w=200&auto=format&fit=crop',
+ 'https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1600&auto=format&fit=crop',
+ 985,
+ 0
+),
+('tasty_traveler',
+ 'https://images.unsplash.com/photo-1556740749-887f6717d7e4?q=80&w=200&auto=format&fit=crop',
+ 'https://images.unsplash.com/photo-1521305916504-4a1121188589?q=80&w=1600&auto=format&fit=crop',
+ 1672,
+ 1
+),
+('vegan_sam',
+ 'https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=200&auto=format&fit=crop',
+ 'https://images.unsplash.com/photo-1551218808-94e220e084d2?q=80&w=1600&auto=format&fit=crop',
+ 1345,
+ 0
+),
+('dessert_dreamer',
+ 'https://images.unsplash.com/photo-1535914254981-b5012eebbd15?q=80&w=200&auto=format&fit=crop',
+ 'https://images.unsplash.com/photo-1606787366850-de6330128bfc?q=80&w=1600&auto=format&fit=crop',
+ 2238,
+ 0
+),
+('noodle_ninja',
+ 'https://images.unsplash.com/photo-1521305916504-4a1121188589?q=80&w=200&auto=format&fit=crop',
+ 'https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=1600&auto=format&fit=crop',
+ 1745,
+ 1
+),
+('burger_bob',
+ 'https://images.unsplash.com/photo-1552332386-f8dd00dc2f85?q=80&w=200&auto=format&fit=crop',
+ 'https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=1600&auto=format&fit=crop',
+ 3160,
+ 1
+);

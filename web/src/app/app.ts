@@ -18,7 +18,7 @@ export class App implements OnInit {
     this.postService.getPosts().subscribe((items) => this.posts.set(items));
   }
 
-  protected readonly onLike = (id: string): void => {
+  protected readonly onLike = (id: number): void => {
     const current = this.posts();
     const idx = current.findIndex((p) => p.id === id);
     if (idx >= 0) {
@@ -31,7 +31,7 @@ export class App implements OnInit {
     this.postService.likePost(id, 'you').subscribe();
   };
 
-  protected readonly onHide = (id: string): void => {
+  protected readonly onHide = (id: number): void => {
     const current = this.posts();
     this.posts.set(current.filter((p) => p.id !== id));
   };

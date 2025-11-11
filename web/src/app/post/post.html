@@ -1,0 +1,43 @@
+<mat-card class="ig-post" appearance="outlined">
+  <mat-card-header>
+    <div mat-card-avatar class="ig-avatar" [style.backgroundImage]="'url(' + avatarUrl + ')'"></div>
+    <mat-card-title class="ig-username">{{ username }}</mat-card-title>
+  </mat-card-header>
+
+  <div class="ig-media">
+    <img [src]="imageUrl" [alt]="username + ' post'">
+  </div>
+
+  <mat-card-content>
+    <div class="ig-actions">
+      <button mat-icon-button color="primary" aria-label="Like" (click)="like.emit()">
+        <mat-icon>{{ isLiked ? 'favorite' : 'favorite_border' }}</mat-icon>
+      </button>
+      <button mat-icon-button aria-label="Comment">
+        <mat-icon>mode_comment</mat-icon>
+      </button>
+      <button mat-icon-button aria-label="Share">
+        <mat-icon>send</mat-icon>
+      </button>
+      <span class="spacer"></span>
+      <button mat-icon-button aria-label="Save">
+        <mat-icon>bookmark_border</mat-icon>
+      </button>
+    </div>
+
+    <div class="ig-likes">
+      {{ likes | number }} likes
+    </div>
+
+    <div class="ig-caption">
+      <span class="ig-username">{{ username }}</span>
+      <span class="ig-caption-text"> {{ caption }}</span>
+    </div>
+
+    <div class="ig-view-comments" role="link" tabindex="0">
+      View all {{ math.max(likedBy.length - 1, 0) }} comments
+    </div>
+
+    <div class="ig-time">{{ timeAgo }}</div>
+  </mat-card-content>
+</mat-card>

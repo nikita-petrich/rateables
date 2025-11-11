@@ -12,8 +12,6 @@ import { PostService, PostItem } from './api/post.service';
 export class App implements OnInit {
   private readonly postService = inject(PostService);
 
-  protected readonly title = signal('web');
-
   protected readonly posts = signal<PostItem[]>([]);
 
   ngOnInit(): void {
@@ -21,7 +19,6 @@ export class App implements OnInit {
   }
 
   protected readonly onLike = (id: string): void => {
-    // Optimistic UI update
     const current = this.posts();
     const idx = current.findIndex((p) => p.id === id);
     if (idx >= 0) {
@@ -33,5 +30,10 @@ export class App implements OnInit {
       this.posts.set([...current.slice(0, idx), updated, ...current.slice(idx + 1)]);
     }
     this.postService.likePost(id, 'you').subscribe();
+  };
+
+  protected readonly onHide = (id: string): void => {
+    const current = this.posts();
+    this.posts.set(current.filter((p) => p.id !== id));
   };
 }

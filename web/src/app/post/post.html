@@ -15,9 +15,11 @@
       </button>
       <span class="likes-badge">{{ likes | number }}</span>
       <span class="spacer"></span>
-      <button mat-icon-button aria-label="More">
-        <mat-icon>more_horiz</mat-icon>
-      </button>
+      <button mat-icon-button [matMenuTriggerFor]="menu"> <mat-icon>more_horiz</mat-icon></button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="hide.emit()">Ausblenden</button>
+      </mat-menu>
+
     </div>
   </mat-card-content>
 </mat-card>

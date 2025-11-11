@@ -42,6 +42,23 @@
   flex: 1;
 }
 
+.ig-actions button[mat-stroked-button] {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 12px;
+  line-height: 1;
+}
+.ig-actions button[mat-stroked-button].is-liked {
+  border-color: #e91e63;
+  color: #e91e63;
+  background: rgba(233, 30, 99, 0.06);
+}
+.ig-actions button[mat-stroked-button].is-liked mat-icon {
+  color: inherit;
+}
+
 .ig-actions button[mat-icon-button] {
   width: 40px;
   height: 40px;
